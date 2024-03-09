@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+
+import React, {useState}from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import SignUp from './components/SignUp';
+import Login from './components/Login';
+import Home from './components/Home';
+import Posts from './components/Posts';
+import './index.css'; // Import the Tailwind CSS styles
+import Navbar from './components/Navbar';
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar isAuthenticated={isAuthenticated} />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={SignUp} />
+        <Route path="/posts" component={Posts} />
+      </Switch>
+    </Router>
   );
 }
 
