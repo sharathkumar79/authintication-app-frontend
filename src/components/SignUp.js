@@ -89,7 +89,7 @@ const SignUp = () => {
 
     try {
       // Make an API request to your backend for signup
-      const response = await axios.post('https://authentication-98kmv5zhe-sharathkumar79s-projects.vercel.appapi/auth/signup', formData);
+      const response = await axios.post('http://localhost:3000/api/auth/signup', formData);
       setVerificationMessage('Verification email sent. Please check your email and verify.');
       setFormData({
         email: '',
@@ -113,7 +113,7 @@ const SignUp = () => {
   const checkVerificationStatus = async () => {
     try {
       // Make an API request to your backend to check verification status
-      const response = await axios.get('https://authentication-98kmv5zhe-sharathkumar79s-projects.vercel.app/api/auth/check-verification', {
+      const response = await axios.get('http://localhost:3000/api/auth/check-verification', {
         params: { email: formData.email },
       });
 

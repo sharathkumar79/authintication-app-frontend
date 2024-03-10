@@ -51,7 +51,7 @@ const Login = () => {
 
     try {
       // Make an API request to your backend for login
-      const response = await axios.post('https://authentication-98kmv5zhe-sharathkumar79s-projects.vercel.appapi/auth/login', formData);
+      const response = await axios.post('http://localhost:3000/api/auth/login', formData);
       console.log(response.data); // Handle success message
       localStorage.setItem('token', response.data.token);
       history.push('/Posts'); // Redirect to dashboard after successful login
